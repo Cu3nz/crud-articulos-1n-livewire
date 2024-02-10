@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Socialite\GithubController;
 use App\Livewire\PrincipalArticles;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,7 @@ Route::middleware([
     Route::get('articles' , PrincipalArticles::class ) -> name('articles.show');
 
 });
+
+
+Route::get('/auth/github/redirect' , [GithubController::class , 'redirect']) -> name('github.redirect');
+Route::get('/auth/github/callback' , [GithubController::class , 'callback']) -> name('github.callback');

@@ -56,5 +56,8 @@
                 </x-button>
             </div>
         </form>
+        <div class="my-2">
+            <a href="{{route('github.redirect')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"><i class="fa-brands fa-github mr-2"></i>Registrate con Github</a>
+        </div>
     </x-authentication-card>
 </x-guest-layout>
