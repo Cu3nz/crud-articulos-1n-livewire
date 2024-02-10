@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContactoController;
 use App\Http\Controllers\Socialite\GithubController;
 use App\Livewire\PrincipalArticles;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+}) -> name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -36,3 +37,7 @@ Route::middleware([
 
 Route::get('/auth/github/redirect' , [GithubController::class , 'redirect']) -> name('github.redirect');
 Route::get('/auth/github/callback' , [GithubController::class , 'callback']) -> name('github.callback');
+
+
+Route::get('contacto' , [ContactoController::class , 'pintarFormulario']) -> name('email.pintar');
+Route::post('contacto' , [ContactoController::class , 'procesarFormulario']) -> name('email.enviar');
